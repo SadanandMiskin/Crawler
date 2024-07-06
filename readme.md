@@ -1,0 +1,4 @@
+- Create a .env file as .env.example
+- npm install
+- `tsc` -> build
+- `node --env-file=.env dist/server.js`
