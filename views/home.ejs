@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #121212;
+            color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
+
+        .input-group {
+            display: block;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+
+        input[type="text"] {
+            padding: 10px;
+            font-size: 1.2em;
+            border: none;
+            border-radius: 5px 0 0 5px;
+            width: 70%;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 1.2em;
+            color: #121212;
+            background-color: green;
+            border: none;
+            border-radius: 0 5px 5px 0;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        button:hover {
+            background-color: #e0e0e0;
+            transform: scale(1.05);
+        }
+
+        .cards {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .card {
+            background-color: #1e1e1e;
+            border-radius: 10px;
+            padding: 20px;
+            width: 100%;
+            max-width: 300px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            position: relative;
+        }
+
+        .card button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            padding: 5px 10px;
+            font-size: 0.8em;
+            color: #ffffff;
+            background-color: #ff5252;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .card button:hover {
+            background-color: #ff0000;
+            transform: scale(1.05);
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2em;
+            }
+
+            input[type="text"], button {
+                font-size: 1em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        
+        <h1>Hi, <%= userDetail.username %></h1>
+        <h3>Lets Watch your Repository for new issues.....</h3> 
+        <div class="input-group">
+          <form action="/link" method="post">
+            <input type="text" name="url" id="url" placeholder="Github Url starts with https://">
+            <br>
+            <h5 class="result" id="result"></h5>
+            <% if(userDetail.email == null) {%>
+                <input type="email" name="email" placeholder="Email to notify">
+                <% } else { %>
+                   <h5> <%= userDetail.email %></h5>
+                <% } %>
+                    <br>
+            <button type="submit" id="btn1">Watch !</button>
+          </form>
+        </div>
+        <div class="cards">
+
+            <% if(userDetail.repos.length == 0){ %>
+                <h1>No Repository Added!</h1>
+                <% } else {%>
+                    <% userDetail.repos.forEach(repo => { %>
+                        <div class="card">
+                            <h4><%= repo.repoLink.split('/').slice(-1) %></h4>
+                            <p>Updated: <%= new Date(repo.date) %></p>
+                            <form action="/deleteRepo?uid=<%=userDetail._id %>&repid=<%=repo._id %>" method="post">
+                                <button type="submit">Delete</button>
+                            </form>
+                            
+                        </div>
+                    <% }) %>
+                    <%} %>
+          
+            
+        </div>
+    </div>
+    <script>
+         function checkUrl(repoURL) {
+            const regex = /^(?:https|git)(?::\/\/|@)([\w.-]+)(?::|\/)([\w.-]+)\/([\w.-]+)$/;
+            const match = repoURL.match(regex);
+
+            if (match) {
+                return { valid: true };
+            } else {
+                return { valid: false };
+            }
+        }
+
+        document.getElementById('url').addEventListener('input', function() {
+            const repoURL = this.value;
+            const result = checkUrl(repoURL);
+            
+            if (result.valid) {
+                document.getElementById('result').textContent = '';
+                document.getElementById('btn1').style.display = 'inline'
+            } else {
+                const res =  document.getElementById('result')
+                res.style.color = 'red'
+                res.textContent = 'Invalid Url, Please check'
+                document.getElementById('btn1').style.display = 'none'
+                
+            }
+        });
+    </script>
+</body>
+</html>
