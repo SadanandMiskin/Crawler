@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>GitHub Crawler</title>
+	<style>
+		@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,800;1,800&display=swap');
+		body {
+			font-family: 'Montserrat', sans-serif;
+			margin: 0;
+			padding: 0;
+			width: 100vw;
+			height: 70vh;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			background-color: #000000;
+			color: #fff;
+		}
+		.container {
+			max-width: 900px;
+			text-align: center;
+		}
+		.button {
+			/* background-color: #4CAF50; */
+			color: #fff;
+			padding: 12px 24px;
+			border: none;
+			border-radius: 5px;
+			cursor: pointer;
+            
+		}
+		
+
+      
+
+/* CSS */
+.button-85 {
+    text-align: center;
+  padding: 0.9em 2.3em;
+  /* width: 300px;
+  height: 130px; */
+  border: none;
+  outline: none;
+  color: rgb(255, 255, 255);
+  background: #111;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  border-radius: 10px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button-85:before {
+  content: "";
+  background: linear-gradient(
+    45deg,
+    #ff0000,
+    #ff7300,
+    #fffb00,
+    #48ff00,
+    #00ffd5,
+    #002bff,
+    #7a00ff,
+    #ff00c8,
+    #ff0000
+  );
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(5px);
+  -webkit-filter: blur(5px);
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  animation: glowing-button-85 20s linear infinite;
+  transition: opacity 0.3s ease-in-out;
+  border-radius: 10px;
+}
+
+@keyframes glowing-button-85 {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 400% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+
+.button-85:after {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #222;
+  left: 0;
+  top: 0;
+  border-radius: 10px;
+}
+@media only screen and (width: 600px) {
+  .button-85{
+    width: 80px;
+    height: 80px;
+  }
+}
+	</style>
+</head>
+<body>
+	<div class="container">
+    <img src="/crawl.png" style="max-width: 90px; height: 90px;">
+		<h1 style="font-weight: bold; margin-bottom: 10px; font-size: 90px;">GitHub Crawler</h1>
+		<p style="margin-bottom: 20px; color: #00ffd5;">I'll watch any new isuues and notify you.</p>
+		<!-- <button class="button" style="font-size: 18px;">Connect to GitHub</button> -->
+        <!-- <button class="button-64 button" role="button"><span class="text">Button 64</span></button> -->
+          <!-- HTML !-->
+           
+<a href="/auth/github"><button class="button-85 button"  role="button"> Connect to Github</button></a>
+	</div>
+</body>
+</html>
+
+
+<!-- HTML !-->
+
+

@@ -7,6 +7,10 @@ const GITHUB_CLIENT_ID :any = process.env.client;
 const GITHUB_CLIENT_SECRET :any= process.env.secret;
 const callback = process.env.callbackURL
 
+if (!GITHUB_CLIENT_ID || !GITHUB_CLIENT_SECRET) {
+  throw new Error('Missing required environment variables: GITHUB_CLIENT_ID and GITHUB_CLIENT_SECRET');
+}
+
 passport.use(new GitHubStrategy({
     clientID: GITHUB_CLIENT_ID,
     clientSecret: GITHUB_CLIENT_SECRET,
