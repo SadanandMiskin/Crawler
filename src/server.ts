@@ -13,7 +13,7 @@ import { connectDb } from './config/db.js';
 import { newIssue } from './functions/newIssue.js';
 
 const app = express();
-const __dirname = path.dirname(require.main.filename);
+// const __dirname = path.dirname(require.main.filename);
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');

@@ -3,7 +3,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ensureAuthenticated = void 0;
+exports.ensureAuthenticated = ensureAuthenticated;
 // auth.ts
 const passport_1 = __importDefault(require("passport"));
 const passport_github_1 = require("passport-github");
@@ -32,4 +32,3 @@ function ensureAuthenticated(req, res, next) {
     }
     res.redirect('/login');
 }
-exports.ensureAuthenticated = ensureAuthenticated;

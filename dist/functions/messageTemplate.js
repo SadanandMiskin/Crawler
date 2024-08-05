@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.messageTemplate = void 0;
+exports.messageTemplate = messageTemplate;
 function messageTemplate(username, url, title, body) {
     return ` <!DOCTYPE html>
         <html lang="en">
@@ -57,4 +57,3 @@ function messageTemplate(username, url, title, body) {
         </body>
         </html>`;
 }
-exports.messageTemplate = messageTemplate;

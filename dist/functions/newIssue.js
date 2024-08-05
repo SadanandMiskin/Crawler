@@ -3,7 +3,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.newIssue = void 0;
+exports.newIssue = newIssue;
 const user_js_1 = __importDefault(require("../model/user.js"));
 const fetchRepo_js_1 = require("./fetchRepo.js");
 const sendMail_js_1 = require("./sendMail.js");
@@ -27,4 +27,3 @@ async function newIssue() {
         }
     }
 }
-exports.newIssue = newIssue;

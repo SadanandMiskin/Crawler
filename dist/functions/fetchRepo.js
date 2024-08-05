@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.fetchGithubIssue = void 0;
+exports.fetchGithubIssue = fetchGithubIssue;
 const core_1 = require("@octokit/core");
 const auth = process.env.OCTOKIT;
 const octokit = new core_1.Octokit({
@@ -14,4 +14,3 @@ function fetchGithubIssue(username, repoName) {
     });
     // console.log('sdssdsasaddadsd' ,ans)
 }
-exports.fetchGithubIssue = fetchGithubIssue;

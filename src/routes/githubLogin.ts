@@ -4,7 +4,7 @@ import GithubStrategy from 'passport-github2'
 import path from 'path'
 
 import { fileURLToPath } from 'url';
-const __dirname = path.dirname(require.main.filename);
+// const __dirname = path.dirname(require.main.filename);
 
 const router = express.Router()
 

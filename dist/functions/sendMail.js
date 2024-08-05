@@ -3,7 +3,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.sendMail = void 0;
+exports.sendMail = sendMail;
 const nodemailer_1 = __importDefault(require("nodemailer"));
 const messageTemplate_js_1 = require("./messageTemplate.js");
 function sendMail(email, url, title, body) {
@@ -31,4 +31,3 @@ function sendMail(email, url, title, body) {
         }
     });
 }
-exports.sendMail = sendMail;

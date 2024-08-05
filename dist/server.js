@@ -13,7 +13,7 @@ const userRoutes_js_1 = __importDefault(require("./routes/userRoutes.js"));
 const db_js_1 = require("./config/db.js");
 const newIssue_js_1 = require("./functions/newIssue.js");
 const app = (0, express_1.default)();
-const __dirname = path_1.default.dirname(require.main.filename);
+// const __dirname = path.dirname(require.main.filename);
 app.set('views', path_1.default.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 app.use(express_1.default.static(path_1.default.join(__dirname, '../assets')));
