@@ -1,9 +1,12 @@
-import { Octokit } from "@octokit/core";
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.fetchGithubIssue = void 0;
+const core_1 = require("@octokit/core");
 const auth = process.env.OCTOKIT;
-const octokit = new Octokit({
+const octokit = new core_1.Octokit({
     auth: auth
 });
-export function fetchGithubIssue(username, repoName) {
+function fetchGithubIssue(username, repoName) {
     return octokit.request('GET /repos/{owner}/{repo}/issues?state=open&sort=created', {
         owner: username,
         repo: repoName,
@@ -11,3 +14,4 @@ export function fetchGithubIssue(username, repoName) {
     });
     // console.log('sdssdsasaddadsd' ,ans)
 }
+exports.fetchGithubIssue = fetchGithubIssue;

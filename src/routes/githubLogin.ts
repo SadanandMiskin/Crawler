@@ -1,11 +1,10 @@
 import express from 'express'
 import passport from 'passport'
 import GithubStrategy from 'passport-github2'
-
 import path from 'path'
+
 import { fileURLToPath } from 'url';
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+const __dirname = path.dirname(require.main.filename);
 
 const router = express.Router()
 

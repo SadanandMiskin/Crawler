@@ -1,4 +1,7 @@
-export function checkUrl(repoURL) {
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.checkUrl = void 0;
+function checkUrl(repoURL) {
     // console.log('dfdf,' ,repoURL)
     const regex = /^(?:https|git)(?::\/\/|@)([\w.-]+)(?::|\/)([\w.-]+)\/([\w.-]+)$/;
     const match = repoURL.match(regex);
@@ -17,3 +20,4 @@ export function checkUrl(repoURL) {
         };
     }
 }
+exports.checkUrl = checkUrl;

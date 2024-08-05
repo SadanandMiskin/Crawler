@@ -1,10 +1,13 @@
-import express from 'express';
-import passport from 'passport';
-import path from 'path';
-import { fileURLToPath } from 'url';
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-const router = express.Router();
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = __importDefault(require("express"));
+const passport_1 = __importDefault(require("passport"));
+const path_1 = __importDefault(require("path"));
+const __dirname = path_1.default.dirname(require.main.filename);
+const router = express_1.default.Router();
 router.get('/logout', (req, res) => {
     req.logout((err) => {
         if (err) {
@@ -13,11 +16,11 @@ router.get('/logout', (req, res) => {
         res.redirect('/login');
     });
 });
-router.get('/auth/github', passport.authenticate('github'));
-router.get('/auth/github/callback', passport.authenticate('github', { failureRedirect: '/login' }), function (req, res) {
+router.get('/auth/github', passport_1.default.authenticate('github'));
+router.get('/auth/github/callback', passport_1.default.authenticate('github', { failureRedirect: '/login' }), function (req, res) {
     res.redirect('/');
 });
 router.get('/login', (req, res) => {
     res.render('login');
 });
-export default router;
+exports.default = router;

@@ -1,4 +1,7 @@
-export function messageTemplate(username, url, title, body) {
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.messageTemplate = void 0;
+function messageTemplate(username, url, title, body) {
     return ` <!DOCTYPE html>
         <html lang="en">
         <head>
@@ -54,3 +57,4 @@ export function messageTemplate(username, url, title, body) {
         </body>
         </html>`;
 }
+exports.messageTemplate = messageTemplate;
