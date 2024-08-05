@@ -1,7 +1,4 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.messageTemplate = messageTemplate;
-function messageTemplate(username, url, title, body) {
+export function messageTemplate(username, url, title, body) {
     return ` <!DOCTYPE html>
         <html lang="en">
         <head>

@@ -1,10 +1,11 @@
 import express from 'express'
 import passport from 'passport'
 import GithubStrategy from 'passport-github2'
-import path from 'path'
 
+import path from 'path'
 import { fileURLToPath } from 'url';
-// const __dirname = path.dirname(require.main.filename);
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const router = express.Router()
 
@@ -33,6 +34,5 @@ router.get('/logout', (req, res) => {
   })
   
   export default router
-
 
 

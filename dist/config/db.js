@@ -1,13 +1,7 @@
-"use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.connectDb = connectDb;
-const mongoose_1 = __importDefault(require("mongoose"));
+import mongoose from "mongoose";
 const mongo = process.env.MONGO;
-function connectDb() {
-    mongoose_1.default.connect(mongo || '')
+export function connectDb() {
+    mongoose.connect(mongo || '')
         .then(() => console.log('db connected'))
         .catch(err => console.error(err));
 }
